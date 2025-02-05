@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid crimson;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Form</h1>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" style="width: 99%; height: 100%;" id="inputname" onkeyup="enterkey(event)" onchange="enterkey(event)"></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="number" style="width: 99%;" id="ageenter" onkeyup="enterkey(event)" onchange="enterkey(event)"></td>
+        </tr>
+        <tr>
+            <td>Course</td>
+            <td>
+                <select style="width: 100%;" id="courseenter" onkeyup="enterkey(event)" onchange="enterkey(event)">
+                    <option value="html">HTML</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="css">CSS</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <div class="radio-container" id="genderenter">
+                    <input type="radio" id="male" name="gender" value="male" onkeyup="enterkey(event)" onchange="enterkey(event)">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" onkeyup="enterkey(event)" onchange="enterkey(event)">
+                    <label for="female">Female</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" style="width: 99%;" id="mailenter" onkeyup="enterkey(event)" onchange="enterkey(event)"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button style="width: 100%; background-color: aqua;" onclick="namecall() ; agecall() ; coursecall() ; gendercall() ; mailcall()" onclick="namecall2() ; agecall2() ; coursecall2() ; gendercall2() ; mailcall2()">Save</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <h1>Saved Details</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <script>
+                function namecall()
+                {
+                    var h1=document.getElementById("inputname")
+                    var one=h1.value
+                    var h2=document.getElementById("namewrite","namewrite2")
+                    h2.textContent=one
+                    h1.value=""                   
+                }
+                
+                function agecall()
+                {
+                    var h5=document.getElementById("ageenter")
+                    var two=Number(h5.value)
+                    var h4=document.getElementById("agewrite","agewrite2")
+                    h4.textContent=two
+                    h5.value=""                   
+                }
+                function coursecall()
+                {
+                    var h3=document.getElementById("courseenter")
+                    var three=h3.value
+                    var h6=document.getElementById("coursewrite","coursewrite2")
+                    h6.textContent=three
+                    h3.value=""                   
+                }
+                function gendercall() {
+                var genderElements = document.getElementsByName("gender")
+                var selectedGender
+                for (var i = 0; i < genderElements.length; i++) {
+                if (genderElements[i].checked) {
+                selectedGender = genderElements[i].value
+                break
+                     }
+                 }
+               var h8 = document.getElementById("genderwrite","genderwrite2");
+               h8.textContent = selectedGender;
+              }
+              function mailcall()
+              {
+                var h9 = document.getElementById("mailenter")
+                var four = h9.value
+                var h10 =document.getElementById("mailwrite","")
+                h10.textContent=four
+                h9.value=""
+
+              }
+              function enterkey(event) {
+                if (event.key == "Enter") {  //this namecall,course,gender events are not working
+                  if (event.target.id == "inputname") {
+                    namecall()
+                  } else if (event.target.id == "ageenter") {
+                    agecall()
+                  } else if (event.target.id == "courseenter") {
+                    coursecall()
+                  } else if (event.target.name == "gender") {
+                    gendercall()
+                  } else if (event.target.id == "mailenter") {
+                    mailcall()
+                  }
+                }
+              }
+            </script>
+            <td id="namewrite">
+                  
+            
+            </td>
+            <td id="agewrite">   
+
+            </td>
+            <td id="coursewrite"> 
+            
+            </td>
+            <td id="genderwrite">
+            
+            </td>
+            <td id="mailwrite">
+            
+            </td>
+            <td> <button style="width: 100%; background-color: red;">Action</button> </td>
+        </tr>
+        <script>
+            function namecall2()
+            {
+                var h11=document.getElementById("inputname")
+                var one1=h11.value
+                var h21=document.getElementById("namewrite2")
+                h21.textContent=one1
+                h11.value=""                   
+            }
+            
+            function agecall2()
+            {
+                var h51=document.getElementById("ageenter")
+                var two1=Number(h51.value)
+                var h41=document.getElementById("agewrite2")
+                h41.textContent=two1
+                h51.value=""                   
+            }
+            function coursecall2()
+            {
+                var h31=document.getElementById("courseenter")
+                var three1=h31.value
+                var h61=document.getElementById("coursewrite2")
+                h61.textContent=three1
+                h31.value=""                   
+            }
+            function gendercall2() {
+                var genderElements1 = document.getElementsByName("gender")
+                var selectedGender1
+                for (var i = 0; i < genderElements1.length; i++) {
+                if (genderElements1[i].checked) {
+                selectedGender1 = genderElements1[i].value
+                break
+                     }
+                 }
+               var h81 = document.getElementById("genderwrite","genderwrite2");
+               h81.textContent = selectedGender1;
+              }
+              function mailcall2()
+              {
+                var h91= document.getElementById("mailenter")
+                var four1 = h91.value
+                var h101 =document.getElementById("mailwrite","")
+                h101.textContent=four1
+                h91.value=""
+
+              }
+            
+        </script>
+        <tr>
+            <td id="namewrite2">   </td>
+            <td id="agewrite2">   </td>
+            <td id="coursewrite2">   </td>
+            <td id="genderwrite2">   </td>
+            <td id="mailwrite2">   </td>
+            <td> <button style="width: 100%; background-color: red;">Action</button> </td>
+        </tr>
+    </table>
+</body>
+</html>
